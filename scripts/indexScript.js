@@ -4,17 +4,13 @@ $(document).ready(function () {
     var units = "F";
     
     function success(pos) {
-            
-        var apiWeather = "http://api.openweathermap.org/data/2.5/weather?lat="+pos.coords.latitude+"&lon="+pos.coords.longitude+"&units=imperial&appid=6401d645d8148174fc14a582998bade2";
-        $.getJSON(apiWeather, function(data){
+        //must use https to be compatible with html5
+        var api = "https://fcc-weather-api.glitch.me/api/current?lat="+pos.coords.latitude+"&lon="+pos.coords.longitude;  
+
+        $.getJSON(api, function(data){
            
-            //var city = data.name;
-            temperatureF = data.main.temp ;
-            temperatureC = parseFloat((temperatureF - 32) / 1.8).toFixed(1);
-            var description = data.weather[0].description;
-            var humidity = data.main.humidity;
-            var tempChange = false;
-            
+            temperatureC = data.main.temp;
+            temperatureF = parseFloat(temperatureC * 9 / 5 + 32).toFixed(1);          
             $("#city").html(data.name);
             $("#temperature").html(temperatureF + "&deg;F"); 
             $("#description").html(data.weather[0].description);
@@ -30,8 +26,7 @@ $(document).ready(function () {
                     $("#temperature").html(temperatureC + " &deg;C");                    
                 }
             });
-            setBackground(temperatureF);
-    
+            setBackground(temperatureF);    
         });
       };
       
@@ -43,8 +38,8 @@ $(document).ready(function () {
       navigator.geolocation.getCurrentPosition(success, error);
 
       function setBackground(temperatureF){
-          console.log(temperatureF);
-          $('body').css('background-image','url(img/weather.jpg');         
+          
+        $('body').css('background-image','url(img/weather.jpg');         
               
         if (temperatureF >= 80) {
             $("#thermometer").html("<i class = 'fa fa-thermometer-three-quarters'></i>");
