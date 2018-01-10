@@ -5,12 +5,18 @@
     list-style: none;
     vertical-align: baseline;
   }
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .container {
     margin-top: 90px;
   }
 .jumbotron {
-    color: #fff;
-    background-color: #376D5C;
+    color: black;
+    font-weight: 900;
     font-size: 200%;
     border-radius: 25px;
+    background-color: transparent;
+    text-shadow: 0 0 3px #FF0000;
   }

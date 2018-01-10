@@ -15,19 +15,27 @@
   </head>
   <body>
         <div class='container'>
-            <div class='jumbotron'>
-                <p><span>Current Weather for your area is </span><span id="fTemp"> </span><span> degrees 
-                    fahrenheit </span>
+            <div class='jumbotron text-center'>
+                <h1>LOCAL FORECAST</h1>
+                <p>
+                    <span>Current Temperature for your area is </span><span id="temperature"> </span><span></span>
                     <br>
                     <ul>
-                        <li> <span> Weather Description: </span> <span id='description'></span> <span> with </span> <span id='humidity'></span>
-                            <span> percent humidity</span></li></p>
+                        <li> 
+                            <span> Weather Description: </span> <span id='description'></span> <span> with </span> <span id='humidity'></span>
+                            <span> percent humidity</span>
+                        </li>
+                        <li>
+                            <span>Closest City Found: </span><span id='city'> </span>
+                        </li>
+                </p>
                     </ul>
-                    <!--<span id='description'> </span><span> with </span> <span id='humidity'></span>
-                <span> percent humidity</span></p>-->
-
+                    <span id='thermometer'></span>
+                        <button class="btn btn-info btn-sm" id="temp-units">Change Temperature units (C/F)</button>
+                   
             </div>
         </div>
+        
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
