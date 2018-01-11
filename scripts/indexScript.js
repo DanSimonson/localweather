@@ -1,16 +1,21 @@
 $(document).ready(function () {
+    /* No Global variables necessary
+    --------------------------------
     var temperatureC;
     var temperatureF;
     var units = "F";
+    -------------------------------
+    */
     
     function success(pos) {
         //must use https to be compatible with html5
         var api = "https://fcc-weather-api.glitch.me/api/current?lat="+pos.coords.latitude+"&lon="+pos.coords.longitude;  
 
         $.getJSON(api, function(data){
-           
-            temperatureC = data.main.temp;
-            temperatureF = parseFloat(temperatureC * 9 / 5 + 32).toFixed(1);          
+            
+            var units = "F";
+            var temperatureC = data.main.temp;
+            var temperatureF = parseFloat(temperatureC * 9 / 5 + 32).toFixed(1);          
             $("#city").html(data.name);
             $("#temperature").html(temperatureF + "&deg;F"); 
             $("#description").html(data.weather[0].description);
